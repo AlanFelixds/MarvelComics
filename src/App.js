@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Comic from './pages/Comic';
+import Carousel from './components/Carousel'
+
+
+//IMPORTAÇÃO DOS ESTILOS CSS
+import './styles/App.css'
+
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Carousel} />
+          <Route path="/Comic/:index" exact component={Comic} />
+          <Carousel />
+        </Switch>
+      </Router>
     </div>
   );
 }
